@@ -8,25 +8,24 @@ on:
     branches: [ main ]
     tags:
       - V*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
 
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v4
+    - name: Run a script
+    run: echo Hello World!
 
-      - name: Run a script
-      run: echo Hello World!
+    - name: Run multi-line script
+    run: |
+      echo Run line one
+      echo Run line two
 
-      - name: Run multi-line script
-      run: |
-        echo Run line one
-        echo Run line two
-
-      - name: Run one-line script
-        run: >
-          echo
-          Run
-          line
-          one
+    - name: Run one-line script
+      run: >
+        echo
+        Run
+        line
+        one
       
