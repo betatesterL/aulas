@@ -29,19 +29,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Setup Node.js
 	      uses: actions/setup-node@v4
 		      with:
 		        node-version: '14'  
-
-		  - name: Install dependencies
+      
+      - name: Install dependencies
 		    run: npm install
-
-		  - name: Build Project
+      
+      - name: Build Project
 		    run: npm run build
-
-		  - name: Upload Artifacts
+      
+      - name: Upload Artifacts
 		    uses: actions/upload-artifact@v2
 		      with:
 		        name: build-artifacts
