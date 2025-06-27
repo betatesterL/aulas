@@ -22,30 +22,30 @@ jobs:
       run: npm install
 
     - name: Run test
-    run: npm test
+	    run: npm test
     
   build:
     needs: test
-    runs-on:: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-  - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '14'  
+		  - name: Setup Node.js
+	      uses: actions/setup-node@v4
+		      with:
+		        node-version: '14'  
 
-  - name: Install dependencies
-    run: npm install
+		  - name: Install dependencies
+		    run: npm install
 
-  - name: Build Project
-    run: npm run build
+		  - name: Build Project
+		    run: npm run build
 
-  - name: Upload Artifacts
-    uses: actions/upload-artifacts@v2
-      with:
-        name: build-artifacts
-        patch: ./build
+		  - name: Upload Artifacts
+		    uses: actions/upload-artifact@v2
+		      with:
+		        name: build-artifacts
+		        patch: ./build
   
   deploy:
     needs: build
@@ -55,13 +55,17 @@ jobs:
 
     - name: Download build artifacts
       uses: actions/download-artifact@v2
-      with:
+	      with:
         name: build-artifacts
 
     - name: Setup AWS credentials
       uses: aws-actions/configure-aws-crentials@v2
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+	      with:
+	        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+	        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Deploy to aws
+      run: |
+        aws s3 cp . s3://bucket-de-exemplo --recursive
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - name: Deploy to aws
       run: |
