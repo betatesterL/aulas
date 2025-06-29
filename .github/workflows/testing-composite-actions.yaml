@@ -8,6 +8,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Hello World
         id: hello-world
-        uses: betatesterL/aulas/.github/workflows@v1
+        uses: betatesterL/aulas@v1
         with:
           my-input: world
