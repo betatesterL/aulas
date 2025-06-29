@@ -1,0 +1,13 @@
+on: [ push ]
+
+jobs:
+  hello_world_job:
+    name: um novo job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Hello World
+        id: hello-world
+        uses: betatesterL/aulas/.github/workflows@v1
+        with:
+          my-input: world
