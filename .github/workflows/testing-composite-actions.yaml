@@ -11,3 +11,9 @@ jobs:
         uses: betatesterL/aulas@v1
         with:
           my-input: world
+      
+      - name: print output
+        run: echo $OUTPUT_FROM_HELLO
+        shell: bash
+        env:
+          OUTPUT_FROM_HELLO: ${{ steps.hello-world.outputs.my-outputs }}
