@@ -1,0 +1,15 @@
+name: 'Minha Composite Action'
+description: 'Uma nova composite Action'
+
+inputs:
+  my-input:
+    description: 'Input vindo do workflow'
+    required: true
+    default: ''
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Hello ${{ inputs.my-input }}
+      run: echo "Hello $`{{ inputs.my-input }}!"
+      shell: bash
