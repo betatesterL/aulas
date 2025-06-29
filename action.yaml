@@ -7,7 +7,7 @@ inputs:
     required: true
     default: ''
 
-output:
+outputs:
   my-output:
     value: ${{ steps.hello-world-msg.outputs.output }}
 
