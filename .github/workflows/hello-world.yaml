@@ -5,7 +5,7 @@ on:
 
 jobs:
   hello-world:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - name: Print Hello World
         run: echo "Hello World"
