@@ -9,7 +9,7 @@ jobs:
       
       - name: Hello World
         id: hello-world
-        uses: betatesterL/aulas@v1
+        uses: betatesterL/aulas@v2
         with:
           my-input: world
       
