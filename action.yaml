@@ -8,6 +8,7 @@ inputs:
 
 outputs:
   my-output:
+    description: 'meu-output'
   
 runs:
   using: 'node20'
