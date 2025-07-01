@@ -1,0 +1,23 @@
+{
+  "name": "aulas",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/betatesterL/aulas#readme",
+  "bugs": {
+    "url": "https://github.com/betatesterL/aulas/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betatesterL/aulas.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  }
+}
