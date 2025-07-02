@@ -11,14 +11,24 @@ jobs:
     - uses: actions/checkout@v4
  
     - if: ${{ github.ref == 'refs/heads/main' }}
+      id: deploy-prod
       name: Deploy Production Server
       run: echo "Deploying to production server..."
       shell: bash
 
     - if: ${{ github.ref == 'refs/heads/develop' }}
+      id: deploy-develop
       name: Deploy Develop Server
       run: echo "Deploying to develop server..."
       shell: bash
+
+    - if: ${{ github.ref == 'refs/heads/main' && steps.deploy-prod.conclusion == 'success' }}
+      name: Status deploy prod
+      run: echo "Deployed to production server..."
+
+    - if: ${{ github.ref == 'refs/heads/develop' && steps.deploy-develop.conclusion == 'success' }}
+      name: Status deploy develop
+      run: echo "Deployed to develop server..."
 
   post-deploy:
     runs-on: ubuntu-latest
