@@ -10,12 +10,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
  
-    - if: ${{ github.ref == 'refs/head/main' }}
+    - if: ${{ github.ref == 'refs/heads/main' }}
       name: Deploy Production Server
       run: echo "Deploying to production server..."
       shell: bash
 
-    - if: ${{ github.ref == 'refs/head/develop' }}
+    - if: ${{ github.ref == 'refs/heads/develop' }}
       name: Deploy Develop Server
       run: echo "Deploying to develop server..."
       shell: bash
